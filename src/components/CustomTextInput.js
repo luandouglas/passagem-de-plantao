@@ -14,22 +14,19 @@ const CustomTextInput = ({
 }) => {
   return (
     <View style={{position: 'relative', margin: 10}}>
-      {value != '' ? (
-        <Text
-          style={{
-            backgroundColor: '#FFF',
-            position: 'absolute',
-            top: -5,
-            left: 20,
-          }}>
-          {placeholder}
-        </Text>
-      ) : null}
+      <Text
+        style={{
+          backgroundColor: '#FFF',
+          position: 'absolute',
+          top: -10,
+          left: 20,
+        }}>
+        {placeholder}
+      </Text>
       <TextInput
         // editable={editable ? true : true}
         value={value}
         onChangeText={onChangeText}
-        placeholder={placeholder}
         secureTextEntry={secureTextEntry ? true : false}
         placeholderTextColor="#77bde5"
       />
