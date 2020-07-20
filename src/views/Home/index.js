@@ -29,6 +29,7 @@ const Home = (props) => {
             colors={['#56BFFF', '#80c5ed']}
             style={{
               borderLeftWidth: 10,
+              borderRadius: 4,
               borderLeftColor: 'green',
               marginTop: 10,
               alignSelf: 'center',
