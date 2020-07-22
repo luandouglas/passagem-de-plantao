@@ -3,8 +3,11 @@ const Plantao = {
   primaryKey: 'id',
   properties: {
     id: 'int',
+    data: 'string?',
     leito: 'int',
     identificacao: 'string',
+    dia_internamento: 'string?',
+    historia_admissao: 'string?',
     data_de_nascimento: 'string',
     procedencia: 'string',
     // DIAGNOSTICOS

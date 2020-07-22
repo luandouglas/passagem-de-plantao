@@ -11,8 +11,18 @@ import {
 } from 'react-native';
 import CustomTextInput from '../../components/CustomTextInput';
 import CustomPicker from '../../components/CustomPicker';
+import DadosGerais from './Tabs/DadosGerais';
+import Diagnostico from './Tabs/Diagnostico';
+import Neuro from './Tabs/Neuro';
+import AparelhoCardiovascular from './Tabs/AparelhoCardiovascular';
+import AparelhoRespiratorio from './Tabs/AparelhoRespiratorio';
+import TratoGastrointestinal from './Tabs/TratoGastrointestinal';
+import AparelhoRenalMetabolico from './Tabs/AparelhoRenalMetabolico';
+import HematoInfeccioso from './Tabs/HematoInfeccioso';
+import IntercorrênciasPeríodo from './Tabs/IntercorrênciasPeríodo';
+import PendenciasCaso from './Tabs/PendênciasCaso';
 const Plantao = (props) => {
-  const [screen, setNewScreen] = useState('general');
+  const [screen, setNewScreen] = useState('dados_gerais');
   const [teste, setTeste] = useState('');
   function isActiveTouch(item) {
     if (item == screen) {
@@ -40,6 +50,30 @@ const Plantao = (props) => {
       paddingHorizontal: 8,
     };
   }
+  function returnScreen() {
+    switch (screen) {
+      case 'dados_gerais':
+        return <DadosGerais />;
+      case 'diagnostico':
+        return <Diagnostico />;
+      case 'neuro':
+        return <Neuro />;
+      case 'aparelho_cardiovascular':
+        return <AparelhoCardiovascular />;
+      case 'aparelho_respiratorio':
+        return <AparelhoRespiratorio />;
+      case 'trato_gastrointestinal':
+        return <TratoGastrointestinal />;
+      case 'aparelho_renal_matabolico':
+        return <AparelhoRenalMetabolico />;
+      case 'hemato_infeccioso':
+        return <HematoInfeccioso />;
+      case 'intercorrencias_periodo':
+        return <IntercorrênciasPeríodo />;
+      case 'pendencias_caso':
+        return <PendenciasCaso />;
+    }
+  }
   return (
     <View style={styles.containerHeader}>
       <CustomHeader {...props} />
@@ -54,14 +88,14 @@ const Plantao = (props) => {
           alignItems: 'center',
         }}>
         <TouchableOpacity
-          style={isActiveTouch('general')}
-          onPress={() => setNewScreen('general')}>
-          <Text style={isActiveText('general')}>Dados Gerais</Text>
+          style={isActiveTouch('dados_gerais')}
+          onPress={() => setNewScreen('dados_gerais')}>
+          <Text style={isActiveText('dados_gerais')}>Dados Gerais</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={isActiveTouch('diagnostics')}
-          onPress={() => setNewScreen('diagnostics')}>
-          <Text style={isActiveText('diagnostics')}>Diagnósticos</Text>
+          style={isActiveTouch('diagnostico')}
+          onPress={() => setNewScreen('diagnostico')}>
+          <Text style={isActiveText('diagnostico')}>Diagnósticos</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={isActiveTouch('neuro')}
@@ -69,32 +103,56 @@ const Plantao = (props) => {
           <Text style={isActiveText('neuro')}>Neuro</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={isActiveTouch('cardiovascularSystem')}
-          onPress={() => setNewScreen('cardiovascularSystem')}>
-          <Text style={isActiveText('cardiovascularSystem')}>
+          style={isActiveTouch('aparelho_cardiovascular')}
+          onPress={() => setNewScreen('aparelho_cardiovascular')}>
+          <Text style={isActiveText('aparelho_cardiovascular')}>
             Aparelho Cardiovascular
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={{paddingHorizontal: 8}}>Aparelho Respiratório</Text>
+        <TouchableOpacity
+          style={isActiveTouch('aparelho_respiratorio')}
+          onPress={() => setNewScreen('aparelho_respiratorio')}>
+          <Text style={isActiveText('aparelho_respiratorio')}>
+            Aparelho Respiratório
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={{paddingHorizontal: 8}}>Trato Gastrointestinal</Text>
+        <TouchableOpacity
+          style={isActiveTouch('trato_gastrointestinal')}
+          onPress={() => setNewScreen('trato_gastrointestinal')}>
+          <Text style={isActiveText('trato_gastrointestinal')}>
+            Trato Gastrointestinal
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={{paddingHorizontal: 8}}>Aparelho Renal/Metabolico</Text>
+        <TouchableOpacity
+          style={isActiveTouch('aparelho_renal_matabolico')}
+          onPress={() => setNewScreen('aparelho_renal_matabolico')}>
+          <Text style={isActiveText('aparelho_renal_matabolico')}>
+            Aparelho Renal/Metabolico
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={{paddingHorizontal: 8}}>Hemato/Infeccioso</Text>
+        <TouchableOpacity
+          style={isActiveTouch('hemato_infeccioso')}
+          onPress={() => setNewScreen('hemato_infeccioso')}>
+          <Text style={isActiveText('hemato_infeccioso')}>
+            Hemato/Infeccioso
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={{paddingHorizontal: 8}}>Intercorrências do Período</Text>
+        <TouchableOpacity
+          style={isActiveTouch('intercorrencias_periodo')}
+          onPress={() => setNewScreen('intercorrencias_periodo')}>
+          <Text style={isActiveText('intercorrencias_periodo')}>
+            Intercorrências do Período
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={{paddingHorizontal: 8}}>Pendências do Caso</Text>
+        <TouchableOpacity
+          style={isActiveTouch('pendencias_caso')}
+          onPress={() => setNewScreen('pendencias_caso')}>
+          <Text style={isActiveText('pendencias_caso')}>
+            Pendências do Caso
+          </Text>
         </TouchableOpacity>
       </ScrollView>
-      <View style={{flex: 1}}></View>
+      <View style={{flex: 1}}>{returnScreen()}</View>
     </View>
   );
 };

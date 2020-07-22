@@ -8,7 +8,7 @@ export const TextInput = styled.TextInput`
   border: 0.5px solid #555;
   color: #1f79ad;
   height: 60px;
-  margin: 5px 10px;
+  margin: 0px 10px;
 `;
 
 export const Picker = styled.View`
